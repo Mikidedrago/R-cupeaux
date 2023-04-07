@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="images">
+    <file>Fond/cadenas-verrouille.png</file>
+    <file>Fond/enveloppe.png</file>
+    <file>Fond/fondA.png</file>
+    <file>Fond/utilisateur.png</file>
+    <file>Fond/image2.png</file>
+  </qresource>
+</RCC>
