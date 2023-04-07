@@ -65,6 +65,7 @@ class Application(QtWidgets.QMainWindow):
             # Parcourir les utilisateurs pour trouver une correspondance adresse e-mail/mot de passe
             correspondance_trouvee = False
             for identifiant, utilisateur in donnees_utilisateurs.items():
+
                 if utilisateur["email"] == email_utilisateur and utilisateur["password"] == mot_de_passe_utilisateur:
                     print("Bienvenue,", utilisateur["prenom"])
                     correspondance_trouvee = True
@@ -135,7 +136,7 @@ class Application(QtWidgets.QMainWindow):
         # Insersion du compte dans le base de données
         conn = connexion_bdd()
         cur = conn.cursor()
-        sql = "INSERT INTO utilisateur (nom, prenom, email, motdepasse) VALUES (%s,%s,%s,%s)"
+        sql = "INSERT INTO utilisateur (nom, prenom, email, motdepasse) VALUES (%s,%s,%s,crypt(%s,gen_salt('bf')))"
         values = (nom,prenom,mail,password)
         cur.execute(sql,values)
         
