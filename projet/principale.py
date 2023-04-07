@@ -9,7 +9,6 @@
 
 import resPrincipale
 from PyQt5 import QtCore, QtGui, QtWidgets
-from graph import Graphique
 
 
 class Principale(object):
@@ -35,20 +34,12 @@ class Principale(object):
         font.setPointSize(12)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
-        
         self.frame_3 = QtWidgets.QFrame(self.frame)
         self.frame_3.setGeometry(QtCore.QRect(1880, 14, 27, 27))
         self.frame_3.setStyleSheet("background-image: url(:/images/image/parametre.png);")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        
-        self.graphics = QtWidgets.QGraphicsView(Form)
-        self.graphics.setGeometry(QtCore.QRect(0, 0, 800, 400))
-        self.testest = QtWidgets.QLabel(Form)
-        self.testest.setGeometry(20, 20, 300,300)
-        self.testest.setObjectName("testest")
-        
         self.frame_2 = QtWidgets.QFrame(Form)
         self.frame_2.setGeometry(QtCore.QRect(0, 60, 50, 50))
         self.frame_2.setStyleSheet("background-image: url(:/iconesMeteo/image/iconesMeteo/soleil.png);")
@@ -129,9 +120,9 @@ class Principale(object):
         
         
         self.graphicsView = QtWidgets.QGraphicsView(self.frame_5)
-        self.graphicsView.setGeometry(340, 610, 800, 600)
+        self.graphicsView.setGeometry(QtCore.QRect(340, 610, 591, 351))
         self.graphicsView.setObjectName("graphicsView")
-        self.graphicsView = Graphique()
+        
         
         
         self.label_5.raise_()
@@ -156,8 +147,8 @@ class Principale(object):
         self.label_4.setText(_translate("Form", "Localisation cuve"))
         self.label.setText(_translate("Form", "X"))
         self.label_2.setText(_translate("Form", "°C"))
-        self.testest.setText(_translate("Form", "TESTEST"))
         self.boutonDeconnexion.setText(_translate("Form", "Deconnexion"))
         self.boutonSeConnecter_2.setText(_translate("Form", "Quitter"))
+
 
 
