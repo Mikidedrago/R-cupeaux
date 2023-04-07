@@ -21,6 +21,7 @@ from perteMdp import Password
 from principale import Principale
 from database import connexion_bdd
 
+from tuple_V2 import Window
 
 
 
@@ -85,6 +86,7 @@ class Application(QtWidgets.QMainWindow):
         self.close()
         self.Form = QtWidgets.QWidget()
         self.principale = Principale()
+        self.principale.graphicsView = Window()
         self.principale.setupUi3(self.Form)
         self.Form.showMaximized()
         

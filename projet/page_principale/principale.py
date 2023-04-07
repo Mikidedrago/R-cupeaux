@@ -9,6 +9,7 @@
 
 import resPrincipale
 from PyQt5 import QtCore, QtGui, QtWidgets
+from tuple_V2 import Window
 
 
 class Principale(object):
@@ -120,6 +121,7 @@ class Principale(object):
         self.graphicsView = QtWidgets.QGraphicsView(self.frame_5)
         self.graphicsView.setGeometry(QtCore.QRect(340, 610, 591, 351))
         self.graphicsView.setObjectName("graphicsView")
+        self.graphicsView = Window()
         self.label_5.raise_()
         self.boutonDeconnexion.raise_()
         self.boutonSeConnecter_2.raise_()
