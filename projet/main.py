@@ -21,6 +21,7 @@ from perteMdp import Password
 from principale import Principale
 from database import connexion_bdd
 
+from getpass import getpass
 
 
 
@@ -47,37 +48,29 @@ class Application(QtWidgets.QMainWindow):
         
     def systeme_Login(self):
         
+        conn = psycopg2.connect(
+            user = "postgres",
+            password = "admin",
+            host = "172.20.10.3",
+            port = "5432",
+            database = "eaux"
+            )
         
-        # Ouvrir le fichier JSON en mode lecture
-        with open("donnees_utilisateurs.json", "r") as fichier_json:
-            donnees_utilisateurs = json.load(fichier_json)
+        c = conn.cursor()
+        sql = "SELECT utilisateurs FROM mesure;"
+        c.execute(sql)
+        
+        res = c.fetchall()
+        
+        for row in res:
+            print("utilisateur = ", row[0])
+            
+        c.close()
+        conn.close()
+        
+        
 
-        nombre_essaies = 0
-
-        # demander l'adresse mail
-        email_utilisateur = self.login.username.text()
-
-        while nombre_essaies < 3 :
-
-            # Demander le mot de passe à l'utilisateur
-            mot_de_passe_utilisateur = self.login.password.text()
-
-            # Parcourir les utilisateurs pour trouver une correspondance adresse e-mail/mot de passe
-            correspondance_trouvee = False
-            for identifiant, utilisateur in donnees_utilisateurs.items():
-                if utilisateur["email"] == email_utilisateur and utilisateur["password"] == mot_de_passe_utilisateur:
-                    print("Bienvenue,", utilisateur["prenom"])
-                    correspondance_trouvee = True
-                    self.succesLogin()
-
-            # Si aucune correspondance n'a été trouvée, afficher un message d'erreur
-            if not correspondance_trouvee:
-                self.erreurLogin()
-                break
-                
-            nombre_essaies += 1
-            if correspondance_trouvee == True:
-                break
+        
         
         
         
