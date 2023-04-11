@@ -22,7 +22,6 @@ from principale import Principale
 from database import connexion_bdd
 #from systeme_login_sql import systeme_sql
 
-from getpass import getpass
 
 
 
