@@ -9,7 +9,7 @@
 
 import resPrincipale
 from PyQt5 import QtCore, QtGui, QtWidgets
-from tuple_V2 import Graphique
+#from tuple_V2 import Graphique
 
 class Principale(object):
     def setupUi3(self, Form):
@@ -120,7 +120,7 @@ class Principale(object):
         self.graphicsView = QtWidgets.QGraphicsView(self.frame_5)
         self.graphicsView.setObjectName("graphicsView")
         
-        # Création de l'instance du graphique
+        """# Création de l'instance du graphique
         self.graphique = Graphique()
 
         # Création de la scène et ajout du graphique à la scène
@@ -128,7 +128,7 @@ class Principale(object):
         self.scene.addWidget(self.graphique)
 
         # Définir la scène de la QGraphicsView
-        self.graphicsView.setScene(self.scene)
+        self.graphicsView.setScene(self.scene)"""
 
         
         self.label_5.raise_()
