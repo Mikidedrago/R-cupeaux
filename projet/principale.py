@@ -9,7 +9,7 @@
 
 import resPrincipale
 from PyQt5 import QtCore, QtGui, QtWidgets
-#from tuple_V2 import Graphique
+from tuple_V2 import Graphique
 
 class Principale(object):
     def setupUi3(self, Form):
@@ -118,9 +118,9 @@ class Principale(object):
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
         self.graphicsView = QtWidgets.QGraphicsView(self.frame_5)
+        self.graphicsView.setGeometry(QtCore.QRect(340, 210, 800, 600))
         self.graphicsView.setObjectName("graphicsView")
         
-        """# Création de l'instance du graphique
         self.graphique = Graphique()
 
         # Création de la scène et ajout du graphique à la scène
@@ -128,8 +128,7 @@ class Principale(object):
         self.scene.addWidget(self.graphique)
 
         # Définir la scène de la QGraphicsView
-        self.graphicsView.setScene(self.scene)"""
-
+        self.graphicsView.setScene(self.scene)
         
         self.label_5.raise_()
         self.boutonDeconnexion.raise_()
@@ -157,11 +156,27 @@ class Principale(object):
         self.boutonSeConnecter_2.setText(_translate("Form", "Quitter"))
 
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Principale()
     ui.setupUi3(Form)
+    Form.showMaximized()
+    sys.exit(app.exec_())
+    """
+    
+    
+    
+"""
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
+"""

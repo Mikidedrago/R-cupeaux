@@ -1,18 +1,20 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from pyqtgraph import PlotWidget
 import pyqtgraph as pg
-from PyQt5.QtWidgets import QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QMainWindow
 
 
-class Graphique(QWidget):
+class Graphique(QMainWindow):
     def __init__(self):
         super(Graphique, self).__init__()
         self.test()
 
     def test(self):
-        # Création d'un layout vertical pour le widget
-        layout = QVBoxLayout()
-        self.setLayout(layout)
+        self.scene = QtWidgets.QGraphicsScene(self)
+        self.graphWidget = pg.PlotWidget()
+        self.scene.addWidget(self.graphWidget)
+        self.view = QtWidgets.QGraphicsView(self.scene)
+        self.setCentralWidget(self.view)
 
         # changer couleur de l'arrière plan
         self.graphWidget.setBackground('w')
@@ -27,6 +29,16 @@ class Graphique(QWidget):
         styles = {'color': 'r', 'font-size': '20px'}
         self.graphWidget.setLabel('left', 'Temperature (°C)', **styles)
         self.graphWidget.setLabel('bottom', 'Hour (H)', **styles)
-
         
+"""def main():
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    main = Graphique()
+    main.show()
+    sys.exit(app.exec_())
 
+
+if __name__ == '__main__':
+    main()
+        
+"""

@@ -61,20 +61,20 @@ from PyQt5.QtCore import *
 
 
 
-class Window(QMainWindow):
+class Graphique(QMainWindow):
     def __init__(self):
         super().__init__()
         
-         # Création d'un layout vertical pour le widget
-        layout = QVBoxLayout()
-        self.setLayout(layout)
-
+        self.scene = QtWidgets.QGraphicsScene(self)
+        self.graphWidget = pg.PlotWidget()
+        self.scene.addWidget(self.graphWidget)
+        self.view = QtWidgets.QGraphicsView(self.scene)
+        self.setCentralWidget(self.view)
+        
         # changer couleur de l'arrière plan
-        self.graphWidget = PlotWidget()
         self.graphWidget.setBackground('w')
         axis = pg.DateAxisItem(orientation='bottom')
         self.graphWidget.setAxisItems({"bottom": axis})
-        layout.addWidget(self.graphWidget)
         pen = pg.mkPen(color=(255, 0, 0), width=10, style=QtCore.Qt.DotLine)
 
     
@@ -89,12 +89,13 @@ class Window(QMainWindow):
         
         
 
-    
-# créer l'application 
-App = QApplication(sys.argv)
+"""def main():
+    app = QtWidgets.QApplication(sys.argv)
+    main = Graphique()
+    main.show()
+    sys.exit(app.exec_())
 
-# créer une instance de la fenetre 
-graphique = Window()
 
-# lancer l'app
-sys.exit(App.exec())
+if __name__ == '__main__':
+    main()
+"""

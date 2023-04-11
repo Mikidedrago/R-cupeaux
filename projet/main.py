@@ -49,7 +49,7 @@ class Application(QtWidgets.QMainWindow):
         
     def systeme_Login(self):
         
-        
+        print(1)
         #self.systeme_Login() # si utilisation d'un fichier
         try:
             # Connexion à la base de données
@@ -87,7 +87,7 @@ class Application(QtWidgets.QMainWindow):
             print ("Erreur lors du selection a partir de la table person", error)
 
 
-        
+        print(1)
         
         
         
