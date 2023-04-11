@@ -1,0 +1,5 @@
+pyrcc5 resFormulaire.qrc -o resFormulaire.py
+
+pyrcc5 resLogin.qrc -o resLogin.py  
+pyrcc5 resPrincipale.qrc -o resPrincipale.py
+pyrcc5 resMotPassePerdu.qrc -o resMotPassePerdu.py  
