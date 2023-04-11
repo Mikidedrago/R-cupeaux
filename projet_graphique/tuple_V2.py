@@ -14,7 +14,7 @@ try:
     cur = conn.cursor()
 
     # Exécution de la requête SQL pour récupérer les données timestamp
-    cur.execute("SELECT volume, date FROM mesure LIMIT 3")
+    cur.execute("SELECT volume, date FROM mesure ")
 
     res = cur.fetchall()
 
