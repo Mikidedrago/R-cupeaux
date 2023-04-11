@@ -1,51 +1,82 @@
+import psycopg2
+from datetime import datetime
+
+try:
+    # Connexion à la base de données PostgreSQL
+    conn = psycopg2.connect(
+        host="172.20.10.3", 
+        database="eaux", 
+        user="postgres", 
+        password="admin",
+        port="5432")
+
+    # Création du curseur pour exécuter les requêtes SQL
+    cur = conn.cursor()
+
+    # Exécution de la requête SQL pour récupérer les données timestamp
+    cur.execute("SELECT volume, date FROM mesure LIMIT 3")
+
+    res = cur.fetchall()
+
+    # Stocker les données extraites dans un dictionnaire
+    volume = []
+    date = []
+   
+   
+    for row in res:
+        # ajouter les données dans la liste res_final
+        volume.append(row[0])
+        date.append(row[1])
+        print(type(row[1]))
+       #.strftime("%H:%M:%S")
+      
+        
+    #print(volume)
+    #print(date)
+    
+    
+    #fermeture de la connexion à la base de données
+    cur.close()
+    conn.close()
+
+
+
+except (Exception, psycopg2.Error) as error :
+    print ("Erreur lors du sélection à partir de la table person", error)
+
+
+# ---------------------------------------------------------------------
+
 import sys
 from PyQt5 import QtWidgets, QtCore
 from PyQt5 import *
 from PyQt5.QtWidgets import *
 import pyqtgraph as pg
+from pyqtgraph import PlotWidget
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import psycopg2
-from datetime import datetime
-from principale import Principale
-from database_Mesure import bdd
+
+# ---------------------------------------------------------------------
+
+
 
 
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
         
-        # titre de la fenetre 
-        self.setWindowTitle("PyQtGraph")
-        
-        # Taille de la fenêtre 
-        self.setGeometry(100,100, 800, 600)
-        
-        # appel du graphique
-        self.graphique()
-        
-        # afficher la fenetre
-        self.show()
-        
-    # méthode création du graphique
-    def graphique(self):
-       
-        self.scene = QtWidgets.QGraphicsScene(self)
-        self.graphWidget = pg.PlotWidget()
-        self.scene.addWidget(self.graphWidget)
-        self.view = QtWidgets.QGraphicsView(self.scene)
-        self.setCentralWidget(self.view)
-        
+         # Création d'un layout vertical pour le widget
+        layout = QVBoxLayout()
+        self.setLayout(layout)
 
         # changer couleur de l'arrière plan
+        self.graphWidget = PlotWidget()
         self.graphWidget.setBackground('w')
         axis = pg.DateAxisItem(orientation='bottom')
         self.graphWidget.setAxisItems({"bottom": axis})
+        layout.addWidget(self.graphWidget)
         pen = pg.mkPen(color=(255, 0, 0), width=10, style=QtCore.Qt.DotLine)
 
-        self.bdd = bdd()
-        date = bdd.date
-        volume = bdd.volume
     
         # plot data: x, y values
         self.graphWidget.plot(x=[x.timestamp() for x in date], y=volume, pen=pen, symbol='o')
@@ -58,12 +89,12 @@ class Window(QMainWindow):
         
         
 
- 
-"""# créer l'application 
+    
+# créer l'application 
 App = QApplication(sys.argv)
 
 # créer une instance de la fenetre 
 graphique = Window()
 
 # lancer l'app
-sys.exit(App.exec())"""
+sys.exit(App.exec())

@@ -1,19 +1,16 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from pyqtgraph import PlotWidget
 import pyqtgraph as pg
-import sys
+from PyQt5.QtWidgets import QWidget, QVBoxLayout
 
 
-class Graphique(QtWidgets.QMainWindow):
+class Graphique(QWidget):
     def __init__(self):
         super(Graphique, self).__init__()
 
-        self.scene = QtWidgets.QGraphicsScene(self)
-        self.graphWidget = pg.PlotWidget()
-        self.scene.addWidget(self.graphWidget)
-        self.view = QtWidgets.QGraphicsView(self.scene)
-        self.setCentralWidget(self.view)
-
+        # Création d'un layout vertical pour le widget
+        layout = QVBoxLayout()
+        self.setLayout(layout)
 
         # changer couleur de l'arrière plan
         self.graphWidget.setBackground('w')

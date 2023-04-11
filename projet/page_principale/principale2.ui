@@ -145,16 +145,6 @@
     <string>°C</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>480</y>
-     <width>121</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QFrame" name="frame_5">
    <property name="geometry">
     <rect>
@@ -255,10 +245,20 @@ QPushButton#bouton:pressed{
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>600</y>
-      <width>631</width>
-      <height>361</height>
+      <x>70</x>
+      <y>180</y>
+      <width>921</width>
+      <height>511</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>470</y>
+      <width>121</width>
+      <height>22</height>
      </rect>
     </property>
    </widget>
@@ -266,13 +266,13 @@ QPushButton#bouton:pressed{
    <zorder>boutonDeconnexion</zorder>
    <zorder>boutonSeConnecter_2</zorder>
    <zorder>graphicsView</zorder>
+   <zorder>comboBox</zorder>
   </widget>
   <zorder>frame_5</zorder>
   <zorder>frame</zorder>
   <zorder>frame_2</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>
-  <zorder>comboBox</zorder>
  </widget>
  <resources>
   <include location="resPrincipale.qrc"/>
