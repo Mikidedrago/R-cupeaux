@@ -20,6 +20,7 @@ from formulaire import Inscription
 from perteMdp import Password
 from principale import Principale
 from database import connexion_bdd
+#from systeme_login_sql import systeme_sql
 
 from getpass import getpass
 
@@ -48,27 +49,43 @@ class Application(QtWidgets.QMainWindow):
         
     def systeme_Login(self):
         
-        conn = psycopg2.connect(
-            user = "postgres",
-            password = "admin",
-            host = "172.20.10.3",
-            port = "5432",
-            database = "eaux"
+        
+        #self.systeme_Login() # si utilisation d'un fichier
+        try:
+            # Connexion à la base de données
+            conn = psycopg2.connect(
+                user="postgres",
+                password="admin",
+                host="172.20.10.3",
+                port="5432",
+                database="eaux"
             )
-        
-        c = conn.cursor()
-        sql = "SELECT utilisateurs FROM mesure;"
-        c.execute(sql)
-        
-        res = c.fetchall()
-        
-        for row in res:
-            print("utilisateur = ", row[0])
-            
-        c.close()
-        conn.close()
-        
-        
+            cur = conn.cursor()
+
+            # Fonction pour vérifier les informations de connexion de l'utilisateur
+            def verify_login(username, password):
+                
+                cur.execute("SELECT * FROM utilisateur WHERE nom = %s AND motdepasse = %s;", (username, password))
+                return cur.fetchone() is not None
+
+            # Exemple d'utilisation de la fonction de vérification de connexion
+            username = self.login.username.text() 
+            password = self.login.password.text()
+            if verify_login(username, password):
+                print("Connexion reussie.")
+                self.succesLogin()
+                
+            else:
+                print("Echec de la connexion.")
+                self.erreurLogin()
+
+            # Fermer la connexion à la base de données
+            cur.close()
+            conn.close()
+
+        except (Exception, psycopg2.Error) as error :
+            print ("Erreur lors du selection a partir de la table person", error)
+
 
         
         
@@ -151,10 +168,7 @@ class Application(QtWidgets.QMainWindow):
                 "password": ligne[4]
             }
 
-        # Enregistrer les données dans un fichier JSON
-        with open("donnees_utilisateurs.json", "w") as fichier_json:
-            json.dump(donnees_utilisateurs, fichier_json)
-        #self.maBdd()
+        
         
         self.close()
         self.initialisationLogin()
