@@ -11,6 +11,7 @@ import resPrincipale
 from PyQt5 import QtCore, QtGui, QtWidgets
 from tuple_V2 import Graphique
 
+
 class Principale(object):
     def setupUi3(self, Form):
         Form.setObjectName("Form")
@@ -58,15 +59,6 @@ class Principale(object):
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.comboBox = QtWidgets.QComboBox(Form)
-        self.comboBox.setGeometry(QtCore.QRect(60, 480, 121, 22))
-        self.comboBox.setObjectName("comboBox")
-        self.frame_4 = QtWidgets.QFrame(Form)
-        self.frame_4.setGeometry(QtCore.QRect(50, 180, 470, 281))
-        self.frame_4.setStyleSheet("background-image: url(:/images/image/courbes.png);")
-        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_4.setObjectName("frame_4")
         self.frame_5 = QtWidgets.QFrame(Form)
         self.frame_5.setGeometry(QtCore.QRect(0, 0, 1930, 1101))
         self.frame_5.setStyleSheet("QPushButton#boutonDeconnexion, {    \n"
@@ -117,8 +109,9 @@ class Principale(object):
         self.label_5.setStyleSheet("background-color: #FFFFFF;")
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
+        
         self.graphicsView = QtWidgets.QGraphicsView(self.frame_5)
-        self.graphicsView.setGeometry(QtCore.QRect(340, 210, 800, 600))
+        self.graphicsView.setGeometry(QtCore.QRect(150, 150, 700, 500))
         self.graphicsView.setObjectName("graphicsView")
         
         self.graphique = Graphique()
@@ -130,17 +123,19 @@ class Principale(object):
         # Définir la scène de la QGraphicsView
         self.graphicsView.setScene(self.scene)
         
+        self.comboBox = QtWidgets.QComboBox(self.frame_5)
+        self.comboBox.setGeometry(QtCore.QRect(1060, 470, 121, 22))
+        self.comboBox.setObjectName("comboBox")
         self.label_5.raise_()
         self.boutonDeconnexion.raise_()
         self.boutonSeConnecter_2.raise_()
         self.graphicsView.raise_()
+        self.comboBox.raise_()
         self.frame_5.raise_()
         self.frame.raise_()
         self.frame_2.raise_()
         self.label.raise_()
         self.label_2.raise_()
-        self.comboBox.raise_()
-        self.frame_4.raise_()
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
