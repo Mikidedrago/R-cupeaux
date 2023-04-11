@@ -1,0 +1,3 @@
+python -m PyQt5.uic.pyuic -x perteMdp.ui -o perteMdp.py
+
+pyrcc5 resMotPassePerdu.qrc -o resMotPassePerdu.py  

@@ -1,0 +1,5 @@
+python -m PyQt5.uic.pyuic -x login.ui -o login.py
+
+python -m PyQt5.uic.pyuic -x page_de_login_au_propre.ui -o page_de_login_au_propre.py
+
+pyrcc5 resLogin.qrc -o resLogin.py                       
