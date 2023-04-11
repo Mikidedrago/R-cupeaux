@@ -48,7 +48,7 @@ class Application(QtWidgets.QMainWindow):
         
     def systeme_Login(self):
         
-        print(1)
+        
         #self.systeme_Login() # si utilisation d'un fichier
         try:
             # Connexion à la base de données
@@ -64,7 +64,7 @@ class Application(QtWidgets.QMainWindow):
             # Fonction pour vérifier les informations de connexion de l'utilisateur
             def verify_login(username, password):
                 
-                cur.execute("SELECT * FROM utilisateur WHERE nom = %s AND motdepasse = %s;", (username, password))
+                cur.execute("SELECT (motdepasse = crypt(%s,motdepasse)) AS pswmatch FROM utilisateur WHERE nom = %s ;", (password, username))
                 return cur.fetchone() is not None
 
             # Exemple d'utilisation de la fonction de vérification de connexion
@@ -144,7 +144,7 @@ class Application(QtWidgets.QMainWindow):
         # Insersion du compte dans le base de données
         conn = connexion_bdd()
         cur = conn.cursor()
-        sql = "INSERT INTO utilisateur (nom, prenom, email, motdepasse) VALUES (%s,%s,%s,%s)"
+        sql = "INSERT INTO utilisateur (nom, prenom, email, motdepasse) VALUES (%s,%s,%s, crypt(%s,gen_salt('bf')))"
         values = (nom,prenom,mail,password)
         cur.execute(sql,values)
         
