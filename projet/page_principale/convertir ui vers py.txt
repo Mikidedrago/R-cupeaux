@@ -1,5 +1,0 @@
-python -m PyQt5.uic.pyuic -x principale.ui -o principale.py
-
-pyrcc5 resPrincipale.qrc -o resPrincipale.py
-
-python -m PyQt5.uic.pyuic -x test.ui -o test.py
