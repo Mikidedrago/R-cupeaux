@@ -53,7 +53,7 @@ class Application(QtWidgets.QMainWindow):
         try:
             # Connexion à la base de données
             conn = psycopg2.connect(
-                user = "postgres", #postgres
+                user = "postgres", #postgres  il faut faire des return
                 password= "admin", #admin
                 host="172.20.10.3",
                 port="5432",
