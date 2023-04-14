@@ -53,8 +53,8 @@ class Application(QtWidgets.QMainWindow):
         try:
             # Connexion à la base de données
             conn = psycopg2.connect(
-                user="postgres",
-                password="admin",
+                user = "postgres", #postgres
+                password="admin", #admin
                 host="172.20.10.3",
                 port="5432",
                 database="eaux"
@@ -86,7 +86,6 @@ class Application(QtWidgets.QMainWindow):
             print ("Erreur lors du selection a partir de la table person", error)
 
 
-        print(1)
         
         
         
@@ -143,6 +142,39 @@ class Application(QtWidgets.QMainWindow):
         
         # Insersion du compte dans le base de données
         conn = connexion_bdd()
+        
+        """# création de l'utilisateur
+        cur = conn.cursor()
+        sql = "CREATE USER %s WITH PASSWORD '%s'"
+        identifiants = (mail,password)
+        cur.execute(sql, identifiants)
+        
+        # insertion de l'utilisateur dans la base de donnée
+        cur = conn.cursor()
+        sql = "INSERT INTO utilisateur (nom, prenom, email, motdepasse) VALUES (%s,%s,%s, crypt(%s,gen_salt('bf')))"
+        values = (nom,prenom,mail,password)
+        cur.execute(sql,values)
+        
+        # Vérification si l'utilisateur à été créé
+        conn.commit()
+        count = cur.rowcount
+        print (count, "création du compte.")
+        
+        cur.close()
+        conn.close()
+        
+        connexion = psycopg2.connect(
+            user = mail,
+            password = password,
+            host = "172.20.10.3",
+            port = "5432",
+            database = "eaux"
+        )
+        
+        curseur = connexion.cursor()
+        """
+        
+        
         cur = conn.cursor()
         sql = "INSERT INTO utilisateur (nom, prenom, email, motdepasse) VALUES (%s,%s,%s, crypt(%s,gen_salt('bf')))"
         values = (nom,prenom,mail,password)
@@ -166,7 +198,6 @@ class Application(QtWidgets.QMainWindow):
                 "email": ligne[3],
                 "password": ligne[4]
             }
-
         
         
         self.close()
