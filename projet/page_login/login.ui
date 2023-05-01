@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>571</width>
-    <height>672</height>
+    <width>563</width>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -154,6 +154,7 @@ background-image: url(:/images/Fond/fondA.png);</string>
     <property name="font">
      <font>
       <pointsize>16</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
@@ -173,6 +174,7 @@ background-image: url(:/images/Fond/fondA.png);</string>
     <property name="font">
      <font>
       <pointsize>12</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
@@ -200,6 +202,7 @@ padding-bottom:7px</string>
     <property name="font">
      <font>
       <pointsize>12</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
