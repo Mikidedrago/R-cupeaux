@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icones">
+    <file>icones/cadenas-verrouille.png</file>
+    <file>icones/enveloppe.png</file>
+    <file>icones/utilisateur.png</file>
+  </qresource>
+</RCC>

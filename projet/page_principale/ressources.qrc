@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="autre">
+    <file>icones/log-out.png</file>
+    <file>icones/signe-de-la-croix.png</file>
+    <file>icones/supprimer.png</file>
+    <file>icones/marque-de-croix.png</file>
+    <file>icones/parametre.png</file>
+  </qresource>
+  <qresource prefix="meteo">
+    <file>icones/flocon-de-neige.png</file>
+    <file>icones/nuage.png</file>
+    <file>icones/pluie.png</file>
+    <file>icones/pluie-abondante.png</file>
+    <file>icones/soleil.png</file>
+    <file>icones/soleil_nuage.png</file>
+  </qresource>
+</RCC>

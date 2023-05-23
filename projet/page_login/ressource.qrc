@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/attention.png</file>
+    <file>images/compte.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,5 @@
+self.graphiqueFrame.setGeometry(QtCore.QRect(20, 20, 811, 600))
+
+self.graphique.setGeometry(QtCore.QRect(20, 20, 771, 500))
+
+self.graphique.setStyleSheet("border: none;")

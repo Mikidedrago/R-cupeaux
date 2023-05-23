@@ -1,0 +1,13 @@
+
+- changer la Vfinale de la page princiaple ✔️
+- diagramme de gantt vérifier sic'est pas mieux d'enlever la chronologie 
+- peut être arranger le diagramme de Gantt
+- vérifier ma partie et la présentation
+- Faire un peu plus jolie 
+- modifer la page de formulaire ✔️
+- cacher les écritures sur la page de formulaire ✔️
+- peut être ajouter une expliquation au diagramme de cas d'utilisation
+- ajouter les schèmas des pages puis la Version finale✔️
+- diagramme d'objet ? (pas sur) """pas besoin"""✔️
+- expliquer le déroulement du logiciel (exemple au lancement on est sur application puis login etc)
+- expliquer le code des classes / fichiers 
